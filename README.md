@@ -3,7 +3,7 @@
 
 使用说明
 >
-	1,安装node;config/default.js中设置数据库连接
+	1,config/default.js中设置数据库连接
 	2,node app.js(启动)
 	3,启动app.js后，系统会自动加载model/下所有的JS文件，并且与数据库同步，创建数据库表或更新字段
 
