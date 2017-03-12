@@ -1,14 +1,28 @@
+// 应用服务
 var express = require('express');
 var bodyParser = require('body-parser');
 var router = require('./router/router.js');
+// 认证相关
+var expressSession = require('express-session');
+var passport = require('./auth/passport_config.js');
+var flash = require('connect-flash');
+// 持久化相关
 var sequelize = require('./sequelize/sequelize.js');
 var fs = require('fs');
-var log = require('tracer').colorConsole({level:require('config').get('log').level});
+var log = require('tracer').colorConsole({ level: require('config').get('log').level });
 
 // 初始化应用服务器
 var app = express();
 app.use(bodyParser.json());
-
+app.use(expressSession({
+    secret: 'cheneyxu',
+    resave: false,
+    saveUninitialized: false
+}));
+// 初始化调用 passport
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(flash());
 // 使用路由统一控制(目前支持以下5种RESTful请求)
 /**
  * [POST]http://host:port/model/create
@@ -31,5 +45,5 @@ sequelize.sync().then(function() {
 var port = require('config').get('server').port;
 var server = app.listen(port, function() {
     var port = server.address().port;
-    log.info('#####XModel服务正在监听端口:',port);
+    log.info('#####XModel服务正在监听端口:', port);
 });

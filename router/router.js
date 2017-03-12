@@ -1,5 +1,7 @@
 var express = require('express');
 var router = express.Router();
+var passport = require('../auth/passport_config.js');
+var log = require('tracer').colorConsole({ level: require('config').get('log').level });
 
 const CONTROLLER_PATH = '../controller/ModelController.js';
 const MODEL_SUFFIX = '.js';
@@ -26,7 +28,7 @@ router.post('/*/query', function(req, res) {
     // 动态加载对应名称的方法
     require(CONTROLLER_PATH).query(req, res);
 });
-// 销毁实体对象
+// 销毁实体对象(删除时需要登录认证权限)
 router.get('/*/destroy/:id', function(req, res) {
     // 从请求路径中获取Controller名称
     req.modelName = transJavaStyle(ucfirst(req.path.split('/')[1])) + MODEL_SUFFIX;
@@ -39,6 +41,17 @@ router.get('/*/get/:id', function(req, res) {
     req.modelName = transJavaStyle(ucfirst(req.path.split('/')[1])) + MODEL_SUFFIX;
     // 动态加载对应名称的方法
     require(CONTROLLER_PATH).get(req, res);
+});
+
+// 登录认证
+router.post('/user/login', passport.authenticate('local', { failureFlash: true }), function(req, res) {
+    // log.info(req.user);
+    res.send("success");
+});
+
+// 认证测试
+router.get('/user/testauth', passport.authenticateMiddleware(), function(req, res) {
+    res.send('允许访问');
 });
 
 function ucfirst(str) {

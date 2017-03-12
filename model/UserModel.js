@@ -2,8 +2,8 @@ var Sequelize = require('sequelize');
 var sequelize = require('../sequelize/sequelize.js');
 
 var UserModel = sequelize.define('test_user_model', {
-    name: Sequelize.STRING,
-    code: Sequelize.STRING
+    username: Sequelize.STRING,
+    password: Sequelize.STRING
 });
 
 module.exports = UserModel;

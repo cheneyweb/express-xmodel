@@ -18,6 +18,8 @@
         controller——请求控制器，全自动，无须人工处理
         router——路由器控制器，全自动，无须人工干预
         sequelize——ORM数据库映射器，全自动，无须人工干预
+        auth——passport认证模块
+        config——系统环境配置模块
         model——【数据模型实体，这是使用框架唯一需要编写的文件，每增加数据实体，增加一个文件】
         app.js——系统入口
 
@@ -34,11 +36,11 @@ RESTful规则
 	以一个用户模块为例，需要对用户进行增删改查:
 	需要注意的是默认自动创建id,createdAt,updatedAt三个字段，无须人工处理
 	[POST]http://host:port/user_model/create
-		post body:{"code":"testcode","name":"testname"}
+		post body:{"username":"cheney","password":"123"}
 	[POST]http://host:port/user_model/update
-		post body:{id:1,"code":"testcode2","name":"testname2"}
+		post body:{id:1,"username":"cheney","password":"456"}
 	[POST]http://host:port/user_model/query
-		post body:{"code":"testcode","name":"testname"}
+		post body:{"username":"cheney","password":"123"}
 	[GET]http://host:port/user_model/get/1
 	[GET]http://host:port/user_model/destroy/1
 
@@ -46,9 +48,13 @@ RESTful规则
 >
     "body-parser": "^1.17.1",
     "config": "^1.25.1",
+    "connect-flash": "^0.1.1",
     "express": "^4.15.2",
+    "express-session": "^1.15.1",
     "moment": "^2.17.1",
     "mysql": "^2.13.0",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
     "sequelize": "^3.30.2",
     "tracer": "^0.8.7"
 
@@ -61,4 +67,4 @@ RESTful规则
 更新日志
 >
 	2017.03.11:无后端理念确认，1.0版本推出
-	2017.03.12:增加系统环境配置，增加日志模块
+	2017.03.12:增加系统环境配置，增加日志模块，增加权限认证模块
