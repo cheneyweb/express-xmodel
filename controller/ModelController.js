@@ -1,3 +1,5 @@
+var log = require('tracer').colorConsole({ level: require('config').get('log').level });
+
 const MODEL_PATH = '../model/';
 
 /**
@@ -19,7 +21,7 @@ var ModelController = {
             model.id = result.id;
             res.send(model);
         }).catch(function(err) {
-            console.error("create error:" + err.message);
+            log.error(err.message);
         });
     },
     /**
@@ -35,7 +37,7 @@ var ModelController = {
         Model.update(model, where).then(function(result) {
             res.send('success');
         }).catch(function(err) {
-            console.error("update error:" + err.message);
+            log.error(err.message);
         });
     },
     /**
@@ -50,7 +52,7 @@ var ModelController = {
         Model.findAll(where).then(function(result) {
             res.send(result);
         }).catch(function(err) {
-            console.error("update error:" + err.message);
+            log.error(err.message);
         });
     },
     /**
@@ -65,7 +67,7 @@ var ModelController = {
         Model.findOne(where).then(function(result) {
             res.send(result);
         }).catch(function(err) {
-            console.error("update error:" + err.message);
+            log.error(err.message);
         });
     },
     /**
@@ -80,7 +82,7 @@ var ModelController = {
         Model.destroy(where).then(function(result) {
             res.send('success');
         }).catch(function(err) {
-            console.error("update error:" + err.message);
+            log.error(err.message);
         });
     }
 };

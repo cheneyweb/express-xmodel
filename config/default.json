@@ -1,0 +1,15 @@
+{
+    "db": {
+        "host": "localhost",
+        "port": 3306,
+        "dbname": "alpha",
+        "username": "root",
+        "password": "root"
+    },
+    "log": {
+        "level": "info"
+    },
+    "server": {
+        "port": 8080
+    }
+}

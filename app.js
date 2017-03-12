@@ -3,6 +3,7 @@ var bodyParser = require('body-parser');
 var router = require('./router/router.js');
 var sequelize = require('./sequelize/sequelize.js');
 var fs = require('fs');
+var log = require('tracer').colorConsole({level:require('config').get('log').level});
 
 // 初始化应用服务器
 var app = express();
@@ -23,11 +24,12 @@ fs.readdirSync('./model/').forEach(function(filename) {
     require('./model/' + filename);
 });
 sequelize.sync().then(function() {
-    console.info('所有实体已经同步数据库');
+    log.info('#####所有实体已同步数据库');
 });
 
 // 开始服务监听
-var server = app.listen(8081, function() {
+var port = require('config').get('server').port;
+var server = app.listen(port, function() {
     var port = server.address().port;
-    console.log('服务正在监听端口:' + port);
+    log.info('#####XModel服务正在监听端口:',port);
 });
