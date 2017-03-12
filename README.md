@@ -21,14 +21,10 @@ RESTful规则
 	需要注意的是默认自动创建id,createdAt,updatedAt三个字段，无须人工处理
 	[POST]http://host:port/user_model/create
 		post body:{"code":"testcode","name":"testname"}
-
 	[POST]http://host:port/user_model/update
 		post body:{id:1,"code":"testcode2","name":"testname2"}
-
 	[POST]http://host:port/user_model/query
 		post body:{"code":"testcode","name":"testname"}
-
 	[GET]http://host:port/user_model/get/1
-
 	[GET]http://host:port/user_model/destroy/1
 
