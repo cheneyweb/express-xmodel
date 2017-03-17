@@ -1,9 +1,9 @@
 var express = require('express');
 var router = express.Router();
-var passport = require('../auth/passport_config.js');
+var passport = require(__dirname + '/../auth/passport_config.js');
 var log = require('tracer').colorConsole({ level: require('config').get('log').level });
 
-const CONTROLLER_PATH = '../controller/ModelController.js';
+const CONTROLLER_PATH = __dirname + '/../controller/ModelController.js';
 const MODEL_SUFFIX = '.js';
 
 // 配置路由与Controller方法的绑定
