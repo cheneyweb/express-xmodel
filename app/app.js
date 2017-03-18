@@ -1,13 +1,13 @@
 // 应用服务
 var express = require('express');
 var bodyParser = require('body-parser');
-var router = require('./router/router.js');
+var router = require(__dirname + '/../xmodel_modules/router/router.js');
 // 认证相关
 var expressSession = require('express-session');
-var passport = require('./auth/passport_config.js');
+var passport = require(__dirname + '/../xmodel_modules/auth/passport_config.js');
 var flash = require('connect-flash');
 // 持久化相关
-var sequelize = require('./sequelize/sequelize.js');
+var sequelize = require(__dirname + '/../xmodel_modules/sequelize/sequelize.js');
 var fs = require('fs');
 var log = require('tracer').colorConsole({ level: require('config').get('log').level });
 
@@ -34,8 +34,8 @@ app.use(flash());
 app.use('/', router);
 
 // 首先同步所有实体和数据库
-fs.readdirSync('./model/').forEach(function(filename) {
-    require('./model/' + filename);
+fs.readdirSync(__dirname + '/model/').forEach(function(filename) {
+    require(__dirname + '/model/' + filename);
 });
 sequelize.sync().then(function() {
     log.info('#####所有实体已同步数据库');
