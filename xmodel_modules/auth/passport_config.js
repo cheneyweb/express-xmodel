@@ -1,6 +1,6 @@
 var passport = require('passport');
 var LocalStrategy = require('passport-local');
-var UserModel = require(__dirname + '/../../app/model/UserModel');
+var UserModel = require(__dirname + '/../../src/model/UserModel');
 var log = require('tracer').colorConsole({ level: require('config').get('log').level });
 
 // 用户名密码验证策略

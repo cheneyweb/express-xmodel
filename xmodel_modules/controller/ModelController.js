@@ -1,6 +1,6 @@
 var log = require('tracer').colorConsole({ level: require('config').get('log').level });
 
-const MODEL_PATH = __dirname + '/../../app/model/';
+const MODEL_PATH = __dirname + '/../../src/model/';
 
 /**
  * [ModelController 实体控制器，接收路由入参，对实体进行数据库操作]
