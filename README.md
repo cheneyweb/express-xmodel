@@ -15,13 +15,13 @@
 框架目录结构（后台）
 >
     xmodel
-        controller——请求控制器，全自动，无须人工处理
-        router——路由器控制器，全自动，无须人工干预
-        sequelize——ORM数据库映射器，全自动，无须人工干预
-        auth——passport认证模块
-        config——系统环境配置模块
-        model——【数据模型实体，这是使用框架唯一需要编写的文件，每增加数据实体，增加一个文件】
-        app.js——系统入口
+        xmodel_modules/controller——请求控制器，全自动，无须人工处理
+        xmodel_modules/router——路由器控制器，全自动，无须人工干预
+        xmodel_modules/sequelize——ORM数据库映射器，全自动，无须人工干预
+        xmodel_modules/auth——passport认证模块
+        src/config——系统环境配置模块
+        src/model——【数据模型实体，这是使用框架唯一需要编写的文件，每增加数据实体，增加一个文件】
+        src/app.js——系统入口
 
 RESTful规则
 >
@@ -60,7 +60,7 @@ RESTful规则
 
 帮助联系
 >
-	作者:cheneyxu
+	作者:cheneyxu，chenxingling
 	邮箱:457299596@qq.com
 	QQ:457299596
 
@@ -68,3 +68,4 @@ RESTful规则
 >
 	2017.03.11:无后端理念确认，1.0版本推出
 	2017.03.12:增加系统环境配置，增加日志模块，增加权限认证模块
+	2017.03.18:chenxingling优化项目结构
