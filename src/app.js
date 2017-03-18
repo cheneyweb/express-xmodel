@@ -38,12 +38,12 @@ fs.readdirSync(__dirname + '/model/').forEach(function(filename) {
     require(__dirname + '/model/' + filename);
 });
 sequelize.sync().then(function() {
-    log.info('#####所有实体已同步数据库');
+    log.info('##### 所有实体已同步数据库');
 });
 
 // 开始服务监听
 var port = require('config').get('server').port;
 var server = app.listen(port, function() {
     var port = server.address().port;
-    log.info('#####XModel服务正在监听端口:', port);
+    log.info('##### XModel 服务正在监听端口:', port);
 });
