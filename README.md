@@ -19,14 +19,14 @@
 框架目录结构（后台）
 >
 	├── README.md
-	├── app.js
-	├── config
+	├── app.js (应用服务入口)
+	├── config (应用系统配置)
 	│   ├── default.json
 	│   └── production.json
 	├── node_modules
 	├── package.json
 	├── src
-	│   └── model
+	│   └── model (开发时只需要编写这个目录下的文件，一个Model就是一个文件)
 	└── xmodel_modules
 	    ├── auth
 	    ├── controller
