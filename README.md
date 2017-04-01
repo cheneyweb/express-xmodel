@@ -18,14 +18,20 @@
 
 框架目录结构（后台）
 >
-    xmodel
-    	src/app.js——系统入口
-    	src/config——系统环境配置模块
-        src/model——【数据模型实体，这是使用框架唯一需要编写的文件，每增加数据实体，增加一个文件】
-        xmodel_modules/controller——请求控制器，全自动，无须人工处理
-        xmodel_modules/router——路由器控制器，全自动，无须人工干预
-        xmodel_modules/sequelize——ORM数据库映射器，全自动，无须人工干预
-        xmodel_modules/auth——passport认证模块
+	├── README.md
+	├── app.js
+	├── config
+	│   ├── default.json
+	│   └── production.json
+	├── node_modules
+	├── package.json
+	├── src
+	│   └── model
+	└── xmodel_modules
+	    ├── auth
+	    ├── controller
+	    ├── router
+	    └── sequelize
 
 RESTful规则
 >
@@ -74,3 +80,4 @@ RESTful规则
 	2017.03.12:增加系统环境配置，增加日志模块，增加权限认证模块
 	2017.03.18:chenxingling优化项目结构
 	2017.03.25:整理代码与文档
+	2017.04.01:准备支持ES2015，代码优化

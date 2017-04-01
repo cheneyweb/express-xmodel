@@ -1,7 +1,7 @@
-var passport = require('passport');
-var LocalStrategy = require('passport-local');
-var UserModel = require(__dirname + '/../../src/model/UserModel');
-var log = require('tracer').colorConsole({ level: require('config').get('log').level });
+const passport = require('passport')
+const LocalStrategy = require('passport-local')
+const UserModel = require(__dirname + '/../../src/model/UserModel')
+const log = require('tracer').colorConsole({ level: require('config').get('log').level })
 
 // 用户名密码验证策略
 passport.use(new LocalStrategy(
@@ -17,15 +17,15 @@ passport.use(new LocalStrategy(
                     return done(null, result);
                 } else {
                     log.error('密码错误');
-                    return done(null, false, { message: '密码错误' });
+                    return done(null, false, { message: '密码错误' })
                 }
             } else {
                 log.error('用户不存在');
-                return done(null, false, { message: '用户不存在' });
+                return done(null, false, { message: '用户不存在' })
             }
         }).catch(function(err) {
             log.error(err.message);
-            return done(null, false, { message: err.message });
+            return done(null, false, { message: err.message })
         });
     }
 ));
@@ -44,11 +44,11 @@ passport.deserializeUser(function(user, done) {
 passport.authenticateMiddleware = function authenticationMiddleware() {
     return function(req, res, next) {
         if (req.isAuthenticated()) {
-            return next();
+            return next()
         }
         // res.redirect('/user/login');
-        res.send('非法访问');
+        res.send('非法访问')
     }
 };
 
-module.exports = passport;
+module.exports = passport

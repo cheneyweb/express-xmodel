@@ -4,7 +4,7 @@
   "description": "极简风格的RESTful无后端框架，只需要写实体类，然后直接RESTful请求，全自动CRUD",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js"
   },
   "author": "cheneyxu,chenxingling",
   "license": "ISC",

@@ -1,6 +1,6 @@
-var Sequelize = require('sequelize');
-var config = require('config');
-var dbConfig = config.get('db');
+const Sequelize = require('sequelize')
+const config = require('config')
+const dbConfig = config.get('db')
 /**
  * [sequelize 数据库连接]
  * export NODE_ENV=production
@@ -11,4 +11,4 @@ var sequelize = new Sequelize(dbConfig.dbname, dbConfig.username, dbConfig.passw
     dialect: 'mysql'
 });
 
-module.exports = sequelize;
+module.exports = sequelize

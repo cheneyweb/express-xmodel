@@ -1,6 +1,6 @@
-var log = require('tracer').colorConsole({ level: require('config').get('log').level });
-
-const MODEL_PATH = __dirname + '/../../src/model/';
+const log = require('tracer').colorConsole({ level: require('config').get('log').level });
+const config = require('config')
+const MODEL_PATH = __dirname + '/../..' + config.get('server').modelDir;
 
 /**
  * [ModelController 实体控制器，接收路由入参，对实体进行数据库操作]
@@ -15,8 +15,8 @@ var ModelController = {
      */
     create: function(req, res) {
         // 从请求路径中获取Controller名称
-        var Model = require(MODEL_PATH + req.modelName);
-        var model = req.body;
+        let Model = require(MODEL_PATH + req.modelName);
+        let model = req.body;
         Model.create(model).then(function(result) {
             model.id = result.id;
             res.send(model);
@@ -31,9 +31,9 @@ var ModelController = {
      * @return {[type]}     [description]
      */
     update: function(req, res) {
-        var Model = require(MODEL_PATH + req.modelName);
-        var model = req.body;
-        var where = { where: { id: model.id } };
+        let Model = require(MODEL_PATH + req.modelName);
+        let model = req.body;
+        let where = { where: { id: model.id } };
         Model.update(model, where).then(function(result) {
             res.send('success');
         }).catch(function(err) {
@@ -47,8 +47,8 @@ var ModelController = {
      * @return {[type]}     [description]
      */
     query: function(req, res) {
-        var Model = require(MODEL_PATH + req.modelName);
-        var where = { where: req.body };
+        let Model = require(MODEL_PATH + req.modelName);
+        let where = { where: req.body };
         Model.findAll(where).then(function(result) {
             res.send(result);
         }).catch(function(err) {
@@ -62,8 +62,8 @@ var ModelController = {
      * @return {[type]}     [description]
      */
     get: function(req, res) {
-        var Model = require(MODEL_PATH + req.modelName);
-        var where = { where: { id: req.params.id } };
+        let Model = require(MODEL_PATH + req.modelName);
+        let where = { where: { id: req.params.id } };
         Model.findOne(where).then(function(result) {
             res.send(result);
         }).catch(function(err) {
@@ -77,8 +77,8 @@ var ModelController = {
      * @return {[type]}     [description]
      */
     destroy: function(req, res) {
-        var Model = require(MODEL_PATH + req.modelName);
-        var where = { where: { id: req.params.id } };
+        let Model = require(MODEL_PATH + req.modelName);
+        let where = { where: { id: req.params.id } };
         Model.destroy(where).then(function(result) {
             res.send('success');
         }).catch(function(err) {
