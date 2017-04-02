@@ -1,6 +1,7 @@
 const Sequelize = require('sequelize')
 const config = require('config')
 const dbConfig = config.get('db')
+
 /**
  * [sequelize 数据库连接]
  * export NODE_ENV=production

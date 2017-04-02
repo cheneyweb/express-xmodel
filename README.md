@@ -1,7 +1,7 @@
 # XModel
-极简风格的RESTful无后端Node框架，只需要写实体类，然后直接RESTful请求，全自动CRUD
+极简风格的RESTful无后端Node框架，基于x-model中间件，只需要写实体类，然后直接RESTful请求，全自动CRUD
 
-使用说明
+整体框架使用说明
 >
 	1,config/default.js中设置数据库连接，执行npm install
 	2,node app.js(启动)
@@ -11,6 +11,14 @@
 	1,启动app.js后，系统会自动加载/src/model/下所有的JS文件，并且与数据库同步，创建数据库表或更新字段
 	2,切换到生产环境需要执行命令 export NODE_ENV=production
 
+单独使用x-model中间件(任意express应用均可集成)
+>
+	1,npm install x-model
+	2,let xmodel = require('x-model')
+	3,app.use('/xmodel/', xmodel)
+	可选设置model文件夹路径，默认路径是{project}/src/model/
+	xmodel.modelDir = __dirname + '/src/model/'
+	
 命名规则
 >
 	Model文件名需要以【首字母大写】的【驼峰法】命名，例如应该是UserInfo.js，而不是userInfo.hs或user_info.js
@@ -28,10 +36,7 @@
 	├── src
 	│   └── model (开发时只需要编写这个目录下的文件，一个Model就是一个文件)
 	└── xmodel_modules
-	    ├── auth
-	    ├── controller
-	    ├── router
-	    └── sequelize
+	    └── x-model (无后端Router中间件x-model的源代码)
 
 RESTful规则
 >
@@ -81,3 +86,4 @@ RESTful规则
 	2017.03.18:chenxingling优化项目结构
 	2017.03.25:整理代码与文档
 	2017.04.01:准备支持ES2015，代码优化
+	2017.04.02:以express中间件的形式提供服务，更加高内聚低耦合

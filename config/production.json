@@ -12,6 +12,6 @@
     "server": {
         "port": 8081,
         "controllerRoot": "/xmodel/",
-        "modelDir": "/src/model/"
+        "modelDir": "src/model/"
     }
 }
