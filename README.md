@@ -3,20 +3,20 @@
 
 整体框架使用说明
 >
-	1,config/default.js中设置数据库连接，执行npm install
-	2,node app.js(启动)
+	1, config/default.js 中设置数据库连接，然后执行npm install
+	2, node app.js
 
 注意事项
 >
-	1,启动app.js后，系统会自动加载/src/model/下所有的JS文件，并且与数据库同步，创建数据库表或更新字段
-	2,切换到生产环境需要执行命令 export NODE_ENV=production
+	1, 启动 app.js 后，系统会自动加载 {project}/src/model/下所有的JS文件，并且与数据库同步，创建数据库表或更新字段
+	2, 切换到生产环境需要执行命令 export NODE_ENV=production
 
 单独使用x-model中间件(任意express应用均可集成)
 >
-	1,npm install x-model
-	2,let xmodel = require('x-model')
-	3,app.use('/xmodel/', xmodel)
-	可选设置model文件夹路径，默认路径是{project}/src/model/
+	1, npm install x-model
+	2, let xmodel = require('x-model')
+	3, app.use('/xmodel/', xmodel)
+	可选设置model文件夹路径，默认路径是 {project}/src/model/
 	xmodel.modelDir = __dirname + '/src/model/'
 	
 命名规则
