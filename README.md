@@ -3,9 +3,9 @@
 
 整体框架使用说明
 >
-	1, **config/default.js** 中设置数据库连接，然后执行**npm install**
+	1, config/default.js 中设置数据库连接，然后执行npm install
 
-	2, **node app.js**
+	2, node app.js
 
 注意事项
 >
@@ -22,7 +22,7 @@
 	3, app.use('/xmodel/', xmodel)
 
 	可选设置model文件夹路径，默认路径是 {project}/src/model/
-
+	
 	xmodel.modelDir = __dirname + '/src/model/'
 	
 命名规则
