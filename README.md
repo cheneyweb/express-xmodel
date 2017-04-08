@@ -1,4 +1,4 @@
-# XModel
+# express-xmodel
 极简风格的RESTful无后端Node框架，基于x-model中间件，只需要写实体类，然后直接RESTful请求，全自动CRUD
 
 整体框架使用说明
@@ -15,7 +15,7 @@
 
 单独使用x-model中间件(任意express应用均可集成)
 >
-	1, npm install x-model
+	1, npm install x-model --save
 
 	2, let xmodel = require('x-model')
 
