@@ -5,7 +5,7 @@ const controllerRoot = config.get('server').controllerRoot
 // 应用服务
 const express = require('express')
 const bodyParser = require('body-parser')
-const xmodel = require(__dirname + '/xmodel_modules/x-model/index.js')
+const xmodel = require(__dirname + '/xmodel_modules/express-xmodel/index.js')
 // 认证相关
 const expressSession = require('express-session')
 const flash = require('connect-flash')

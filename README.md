@@ -1,5 +1,5 @@
 # express-xmodel
-极简风格的RESTful无后端Node框架，基于x-model中间件，只需要写实体类，然后直接RESTful请求，全自动CRUD
+极简风格的RESTful无后端Node框架，基于express-xmodel中间件，只需要写实体类，然后直接RESTful请求，全自动CRUD
 
 整体框架使用说明
 >
@@ -42,7 +42,7 @@
 	├── src
 	│   └── model (开发时只需要编写这个目录下的文件，一个Model就是一个文件)
 	└── xmodel_modules
-	    └── x-model (无后端Router中间件x-model的源代码)
+	    └── express-xmodel (无后端Router中间件express-xmodel的源代码)
 
 RESTful规则
 >
