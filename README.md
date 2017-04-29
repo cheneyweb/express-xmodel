@@ -13,11 +13,11 @@
 
 	2, 切换到生产环境需要执行命令 export NODE_ENV=production
 
-单独使用x-model中间件(任意express应用均可集成)
+单独使用express-xmodel中间件(任意express应用均可集成)
 >
 	1, npm install x-model --save
 
-	2, let xmodel = require('x-model')
+	2, let xmodel = require('express-xmodel')
 
 	3, app.use('/xmodel/', xmodel)
 

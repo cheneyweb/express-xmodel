@@ -38,8 +38,9 @@ app.use('/',function(req,res,next){
 		res.send('权限校验失败')
 	}
 })
-// 使用路由统一控制(目前支持以下5种RESTful请求)
+
 /**
+ * 使用路由统一控制(目前支持以下5种RESTful请求)
  * [POST]http://host:port/xmodel/MODEL/create
  * [POST]http://host:port/xmodel/MODEL/update
  * [POST]http://host:port/xmodel/MODEL/query
@@ -54,6 +55,7 @@ fs.readdirSync(modelDir).forEach(function(filename) {
 sequelize.sync().then(function() {
     log.info('xmodel所有实体已同步数据库')
 })
+// 引入express-xmodel中间件
 xmodel.modelDir = modelDir
 app.use(controllerRoot, xmodel)
 
