@@ -15,7 +15,7 @@
 
 单独使用express-xmodel中间件(任意express应用均可集成)
 >
-	1, npm install x-model --save
+	1, npm install express-xmodel --save
 
 	2, let xmodel = require('express-xmodel')
 
