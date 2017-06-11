@@ -5,21 +5,21 @@ const log = require('tracer').colorConsole()
  * @type {Object}
  */
 let ModelController = {
-    modelDir:__dirname + '/../../../src/model/',
+    modelDir: __dirname + '/../../../src/model/',
     /**
      * [create 直接插入JSON对象]
      * @param  {[type]} req [description]
      * @param  {[type]} res [description]
      * @return {[type]}     [description]
      */
-    create: function(req, res) {
+    create: function (req, res) {
         // 从请求路径中获取Controller名称
         let Model = require(this.modelDir + req.modelName)
         let model = req.body
-        Model.create(model).then(function(result) {
+        Model.create(model).then(function (result) {
             model.id = result.id
             res.send(model)
-        }).catch(function(err) {
+        }).catch(function (err) {
             log.error(err.message)
         })
     },
@@ -29,13 +29,13 @@ let ModelController = {
      * @param  {[type]} res [description]
      * @return {[type]}     [description]
      */
-    update: function(req, res) {
+    update: function (req, res) {
         let Model = require(this.modelDir + req.modelName)
         let model = req.body
         let where = { where: { id: model.id } }
-        Model.update(model, where).then(function(result) {
+        Model.update(model, where).then(function (result) {
             res.send('success')
-        }).catch(function(err) {
+        }).catch(function (err) {
             log.error(err.message)
         })
     },
@@ -45,12 +45,12 @@ let ModelController = {
      * @param  {[type]} res [description]
      * @return {[type]}     [description]
      */
-    query: function(req, res) {
+    query: function (req, res) {
         let Model = require(this.modelDir + req.modelName)
         let where = { where: req.body }
-        Model.findAll(where).then(function(result) {
+        Model.findAll(where).then(function (result) {
             res.send(result)
-        }).catch(function(err) {
+        }).catch(function (err) {
             log.error(err.message)
         })
     },
@@ -60,12 +60,12 @@ let ModelController = {
      * @param  {[type]} res [description]
      * @return {[type]}     [description]
      */
-    get: function(req, res) {
+    get: function (req, res) {
         let Model = require(this.modelDir + req.modelName)
         let where = { where: { id: req.params.id } }
-        Model.findOne(where).then(function(result) {
+        Model.findOne(where).then(function (result) {
             res.send(result)
-        }).catch(function(err) {
+        }).catch(function (err) {
             log.error(err.message)
         })
     },
@@ -75,12 +75,12 @@ let ModelController = {
      * @param  {[type]} res [description]
      * @return {[type]}     [description]
      */
-    destroy: function(req, res) {
+    destroy: function (req, res) {
         let Model = require(this.modelDir + req.modelName)
         let where = { where: { id: req.params.id } }
-        Model.destroy(where).then(function(result) {
+        Model.destroy(where).then(function (result) {
             res.send('success')
-        }).catch(function(err) {
+        }).catch(function (err) {
             log.error(err.message)
         })
     }
