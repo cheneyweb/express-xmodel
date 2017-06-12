@@ -20,9 +20,9 @@ router.initConnect = function (modelDir, sequelize) {
 }
 // 配置路由与Controller方法的绑定
 // 创建实体对象
-router.post('/*/create', function (req, res) {
+router.post('/:model_name/create', function (req, res) {
     // 从请求路径中获取Controller名称
-    req.modelName = transJavaStyle(ucfirst(req.path.split('/')[1])) + MODEL_SUFFIX
+    req.modelName = transJavaStyle(ucfirst(req.params.model_name)) + MODEL_SUFFIX
     // 动态加载对应名称的方法
     let model = require(CONTROLLER_PATH)
     if (router.modelDir) {
@@ -31,9 +31,9 @@ router.post('/*/create', function (req, res) {
     model.create(req, res)
 })
 // 更新实体对象
-router.post('/*/update', function (req, res) {
+router.post('/:model_name/update', function (req, res) {
     // 从请求路径中获取Controller名称
-    req.modelName = transJavaStyle(ucfirst(req.path.split('/')[1])) + MODEL_SUFFIX
+    req.modelName = transJavaStyle(ucfirst(req.params.model_name)) + MODEL_SUFFIX
     // 动态加载对应名称的方法
     let model = require(CONTROLLER_PATH)
     if (router.modelDir) {
@@ -42,9 +42,9 @@ router.post('/*/update', function (req, res) {
     model.update(req, res)
 })
 // 复杂查询实体对象
-router.post('/*/query', function (req, res) {
+router.post('/:model_name/query', function (req, res) {
     // 从请求路径中获取Controller名称
-    req.modelName = transJavaStyle(ucfirst(req.path.split('/')[1])) + MODEL_SUFFIX
+    req.modelName = transJavaStyle(ucfirst(req.params.model_name)) + MODEL_SUFFIX
     // 动态加载对应名称的方法
     let model = require(CONTROLLER_PATH)
     if (router.modelDir) {
@@ -53,9 +53,9 @@ router.post('/*/query', function (req, res) {
     model.query(req, res)
 })
 // 销毁实体对象(删除时需要登录认证权限)
-router.get('/*/destroy/:id', function (req, res) {
+router.get('/:model_name/destroy/:id', function (req, res) {
     // 从请求路径中获取Controller名称
-    req.modelName = transJavaStyle(ucfirst(req.path.split('/')[1])) + MODEL_SUFFIX
+    req.modelName = transJavaStyle(ucfirst(req.params.model_name)) + MODEL_SUFFIX
     // 动态加载对应名称的方法
     let model = require(CONTROLLER_PATH)
     if (router.modelDir) {
@@ -64,9 +64,9 @@ router.get('/*/destroy/:id', function (req, res) {
     model.destroy(req, res)
 })
 // 获取实体对象
-router.get('/*/get/:id', function (req, res) {
+router.get('/:model_name/get/:id', function (req, res) {
     // 从请求路径中获取Controller名称
-    req.modelName = transJavaStyle(ucfirst(req.path.split('/')[1])) + MODEL_SUFFIX
+    req.modelName = transJavaStyle(ucfirst(req.params.model_name)) + MODEL_SUFFIX
     // 动态加载对应名称的方法
     let model = require(CONTROLLER_PATH)
     if (router.modelDir) {
