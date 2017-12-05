@@ -15,20 +15,19 @@
 
 单独使用express-xmodel中间件(任意express应用均可集成)
 >
-	1, npm install express-xmodel --save
+	1, npm install express-xmodel
 
-	2, let xmodel = require('express-xmodel')
+	2, const xmodel = require('express-xmodel')
 
-	3, app.use('/xmodel/', xmodel)
-
-	可选设置model文件夹路径，默认路径是 {project}/src/model/
+	3, xmodel.initConnect(modelDir, sequelize)
 	
-	xmodel.modelDir = __dirname + '/src/model/'
+	4, app.use('/xmodel/', xmodel)
+
+	可选设置model文件夹路径，默认路径是 {project}/src/model/	
 	
 命名规则
 >
 	Model文件名需要以【首字母大写】的【驼峰法】命名，例如应该是UserInfo.js，而不是userInfo.hs或user_info.js
-	RESTful请求url，model名称【下划线分割】
 
 框架目录结构（后台）
 >
@@ -56,32 +55,27 @@ RESTful规则
 >
 	以一个用户模块为例，需要对用户进行增删改查:
 	需要注意的是默认自动创建id,createdAt,updatedAt三个字段，无须人工处理
-	[POST]http://host:port/xmodel/user_model/create
+	[POST]http://localhost:port/xmodel/user_model/create
 		post body:{"username":"cheney","password":"123"}
-	[POST]http://host:port/xmodel/user_model/update
+	[POST]http://localhost:port/xmodel/user_model/update
 		post body:{id:1,"username":"cheney","password":"456"}
-	[POST]http://host:port/xmodel/user_model/query
+	[POST]http://localhost:port/xmodel/user_model/query
 		post body:{"username":"cheney","password":"123"}
-	[GET]http://host:port/xmodel/user_model/get/1
-	[GET]http://host:port/xmodel/user_model/destroy/1
+	[GET]http://localhost:port/xmodel/user_model/get/1
+	[GET]http://localhost:port/xmodel/user_model/destroy/1
 
 框架整合（开源力量）
 >
-    "body-parser": "^1.17.1",
-    "config": "^1.25.1",
-    "connect-flash": "^0.1.1",
-    "express": "^4.15.2",
-    "express-session": "^1.15.1",
-    "moment": "^2.17.1",
-    "mysql": "^2.13.0",
-    "passport": "^0.3.2",
-    "passport-local": "^1.0.0",
-    "sequelize": "^3.30.2",
-    "tracer": "^0.8.7"
+    "body-parser": "^1.18.2",
+    "config": "^1.28.1",
+    "express": "^4.16.2",
+    "mysql2": "^1.5.1",
+    "sequelize": "^4.26.0",
+    "tracer": "^0.8.11"
 
 帮助联系
 >
-	作者:cheneyxu，chenxingling
+	作者:cheneyxu
 	邮箱:457299596@qq.com
 	QQ:457299596
 
@@ -96,3 +90,4 @@ RESTful规则
 	2017.04.08:以中间件的形式重命名
 	2017.05.08:将passport认证中间件转移到x-express项目中
 	2017.06.11:重构数据库连接方式
+	2017.12.05:更新精简所有依赖包
