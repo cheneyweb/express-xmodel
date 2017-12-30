@@ -1,6 +1,8 @@
 # express-xmodel
 极简风格的RESTful无后端Node框架，基于express-xmodel中间件，只需要写实体类，然后直接RESTful请求，全自动CRUD
 
+[传送门：XServer官网文档](http://www.xserver.top)
+
 整体框架使用说明
 >
 	1, config/default.js 中设置数据库连接，然后执行npm install
@@ -63,15 +65,6 @@ RESTful规则
 		post body:{"username":"cheney","password":"123"}
 	[GET]http://localhost:port/xmodel/user_model/get/1
 	[GET]http://localhost:port/xmodel/user_model/destroy/1
-
-框架整合（开源力量）
->
-    "body-parser": "^1.18.2",
-    "config": "^1.28.1",
-    "express": "^4.16.2",
-    "mysql2": "^1.5.1",
-    "sequelize": "^4.26.0",
-    "tracer": "^0.8.11"
 
 帮助联系
 >
