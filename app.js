@@ -1,14 +1,12 @@
 // 系统配置
 const config = require('config')
 const port = config.server.port
-const controllerRoot = config.server.controllerRoot
 // 应用服务
 const express = require('express')
 const bodyParser = require('body-parser')
 const xmodel = require(__dirname + '/xmodel_modules/express-xmodel/index.js')
 // 持久层相关
 const sequelize = require(__dirname + '/src/sequelize/sequelize.js')
-let modelDir = __dirname + config.server.modelDir
 // 日志相关
 const log = require('tracer').colorConsole({ level: config.log.level })
 
@@ -16,12 +14,8 @@ const log = require('tracer').colorConsole({ level: config.log.level })
 const app = express()
 app.use(bodyParser.json())
 
-/**
- * 使用路由统一控制
- */
-// 引入express-xmodel中间件
-xmodel.initConnect(modelDir, sequelize)
-app.use(controllerRoot, xmodel)
+// 加载express-xmodel中间件
+xmodel.init(app, sequelize, config.server) // 初始化mysql连接
 
 // 开始服务监听
 app.listen(port, function () {

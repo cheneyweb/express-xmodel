@@ -10,8 +10,9 @@
         "level": "info"
     },
     "server": {
-        "port": 8081,
-        "controllerRoot": "/xmodel/",
-        "modelDir": "/src/model/"
+        "port": 3636,
+        "xmodelRoot": "/xmodel",
+        "modelDir": "/src/model/",
+        "middlewareDir": "/src/middleware/"
     }
 }

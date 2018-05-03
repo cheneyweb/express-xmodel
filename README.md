@@ -21,10 +21,8 @@
 
 	2, const xmodel = require('express-xmodel')
 
-	3, xmodel.initConnect(modelDir, sequelize)
+	3, xmodel.init(app, sequelize, config.server)
 	
-	4, app.use('/xmodel/', xmodel)
-
 	可选设置model文件夹路径，默认路径是 {project}/src/model/	
 	
 命名规则
@@ -84,3 +82,4 @@ RESTful规则
 	2017.05.08:将passport认证中间件转移到x-express项目中
 	2017.06.11:重构数据库连接方式
 	2017.12.05:更新精简所有依赖包
+	2018.05.03:全新版本

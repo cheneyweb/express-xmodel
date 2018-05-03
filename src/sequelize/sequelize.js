@@ -11,6 +11,6 @@ var sequelize = new Sequelize(dbConfig.dbname, dbConfig.username, dbConfig.passw
     host: dbConfig.host,
     dialect: 'mysql',
     operatorsAliases: false
-});
+})
 
 module.exports = sequelize
